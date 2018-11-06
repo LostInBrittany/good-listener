@@ -1,4 +1,4 @@
-var is = require('../src/is');
+var is = require('../cjs/is.js'); 
 
 describe('is', function() {
     before(function() {

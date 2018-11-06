@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Check if argument is a HTML element.
  *
@@ -8,8 +10,7 @@ function node(value) {
     return value !== undefined
         && value instanceof HTMLElement
         && value.nodeType === 1;
-};
-
+}
 /**
  * Check if argument is a list of HTML elements.
  *
@@ -23,8 +24,7 @@ function nodeList(value) {
         && (type === '[object NodeList]' || type === '[object HTMLCollection]')
         && ('length' in value)
         && (value.length === 0 || node(value[0]));
-};
-
+}
 /**
  * Check if argument is a SVG element.
  *
@@ -34,8 +34,7 @@ function nodeList(value) {
 function svg(value) {
     return value !== undefined
         && value instanceof SVGElement;
-};
-
+}
 /**
  * Check if argument is a string.
  *
@@ -45,8 +44,7 @@ function svg(value) {
 function string(value) {
     return typeof value === 'string'
         || value instanceof String;
-};
-
+}
 /**
  * Check if argument is a function.
  *
@@ -57,7 +55,7 @@ function fn(value) {
     var type = Object.prototype.toString.call(value);
 
     return type === '[object Function]';
-};
+}
+var is = {node: node, nodeList: nodeList, svg: svg, string: string, fn: fn};
 
-var is = {node: node, nodeList: nodeList, svg: svg, string: string, fn: fn}
-export default is;
+module.exports = is;

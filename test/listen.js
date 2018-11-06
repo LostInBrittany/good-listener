@@ -1,4 +1,4 @@
-var listen = require('../src/listen');
+var listen = require('../cjs/listen');
 var simulant = require('simulant');
 
 describe('good-listener', function() {
